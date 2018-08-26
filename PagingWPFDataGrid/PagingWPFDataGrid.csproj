@@ -70,7 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigate.cs" />
+    <Compile Include="Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
