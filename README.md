@@ -1,4 +1,7 @@
 # Paging-WPF-DataGrid
+
+![Alt Text](Paging-WPF-DataGrid/Paging in WPF.PNG)
+
 This is an Example on Paging a WPF DataGrid with a DataTable. The DataGrid is interacted with by the user via buttons and the Code is simple and easy to replicate. Not yet fully generic.
 
 This DataGrid Pager takes an IList (or Enumerable of any kind) of a specified class type and outputs the LINQ Query to a DataTable to be used in a DataGrid (or any other display that accepts a DataTable). The DataTable can be bound to the DataGrid in XAML, but for clarity this example does not do that. 
