@@ -104,7 +104,6 @@
                Grid.ColumnSpan='5'>
             <DataGrid x:Name="dataGrid"
                       AutoGenerateColumns="True"
-                      CanUserSortColumns="False"
                       IsReadOnly="False">
                 <DataGrid.Effect>
                     <DropShadowEffect />
