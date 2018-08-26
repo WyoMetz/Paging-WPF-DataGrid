@@ -1,6 +1,6 @@
 # Paging-WPF-DataGrid
 
-![Alt Text](Paging-WPF-DataGrid/Paging in WPF.PNG)
+![Screenshot](PaginginWPF.PNG)
 
 This is an Example on Paging a WPF DataGrid with a DataTable. The DataGrid is interacted with by the user via buttons and the Code is simple and easy to replicate. Not yet fully generic.
 
