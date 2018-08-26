@@ -89,7 +89,7 @@ namespace PagingWPFDataGrid
 
 			IList<StudentModel.Student> PagedList = new List<StudentModel.Student>();
 
-			PagedList = ListToPage.Skip(PageGroup).Take(RecordsPerPage).ToList();
+			PagedList = ListToPage.Skip(PageGroup).Take(RecordsPerPage).ToList(); //This is where the Magic Happens. If you have a Specific sort or want to return ONLY a specific set of columns, add it to this LINQ Query.
 
 			DataTable FinalPaging = PagedTable(PagedList);
 
