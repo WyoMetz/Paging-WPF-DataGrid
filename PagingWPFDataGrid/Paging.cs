@@ -8,7 +8,7 @@ namespace PagingWPFDataGrid
     /// <summary>
     /// Performs Paging operations on a given List and Outputs a DataTable
     /// </summary>
-	class Paging
+	class Paging<T>
 	{
         /// <summary>
         /// Current Page Index Number
@@ -23,7 +23,7 @@ namespace PagingWPFDataGrid
         /// <param name="ListToPage"></param>
         /// <param name="RecordsPerPage"></param>
         /// <returns>DataTable</returns>
-        public DataTable Next(IList<StudentModel.Student> ListToPage, int RecordsPerPage)
+        public DataTable Next(IList<T> ListToPage, int RecordsPerPage)
         {
             PageIndex++;
             if (PageIndex >= ListToPage.Count / RecordsPerPage)
@@ -40,7 +40,7 @@ namespace PagingWPFDataGrid
         /// <param name="ListToPage"></param>
         /// <param name="RecordsPerPage"></param>
         /// <returns>DataTable</returns>
-        public DataTable Previous(IList<StudentModel.Student> ListToPage, int RecordsPerPage)
+        public DataTable Previous(IList<T> ListToPage, int RecordsPerPage)
         {
             PageIndex--;
             if(PageIndex <= 0)
@@ -57,7 +57,7 @@ namespace PagingWPFDataGrid
         /// <param name="ListToPage"></param>
         /// <param name="RecordsPerPage"></param>
         /// <returns>DataTable</returns>
-        public DataTable First(IList<StudentModel.Student> ListToPage, int RecordsPerPage)
+        public DataTable First(IList<T> ListToPage, int RecordsPerPage)
         {
             PageIndex = 0;
             PagedList = SetPaging(ListToPage, RecordsPerPage);
@@ -70,7 +70,7 @@ namespace PagingWPFDataGrid
         /// <param name="ListToPage"></param>
         /// <param name="RecordsPerPage"></param>
         /// <returns>DataTable</returns>
-        public DataTable Last(IList<StudentModel.Student> ListToPage, int RecordsPerPage)
+        public DataTable Last(IList<T> ListToPage, int RecordsPerPage)
         {
             PageIndex = ListToPage.Count / RecordsPerPage;
             PagedList = SetPaging(ListToPage, RecordsPerPage);
@@ -83,11 +83,11 @@ namespace PagingWPFDataGrid
         /// <param name="ListToPage"></param>
         /// <param name="RecordsPerPage"></param>
         /// <returns>DataTable</returns>
-		public DataTable SetPaging(IList<StudentModel.Student> ListToPage, int RecordsPerPage)
+		public DataTable SetPaging(IList<T> ListToPage, int RecordsPerPage)
 		{
 			int PageGroup = PageIndex * RecordsPerPage;
 
-			IList<StudentModel.Student> PagedList = new List<StudentModel.Student>();
+			IList<T> PagedList = new List<T>();
 
 			PagedList = ListToPage.Skip(PageGroup).Take(RecordsPerPage).ToList(); //This is where the Magic Happens. If you have a Specific sort or want to return ONLY a specific set of columns, add it to this LINQ Query.
 
@@ -101,12 +101,12 @@ namespace PagingWPFDataGrid
         /// <summary>
         /// Internal Method: Performs the Work of converting the Passed in list to a DataTable
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="V"></typeparam>
         /// <param name="SourceList"></param>
         /// <returns>DataTable</returns>
-		private DataTable PagedTable<T>(IList<T> SourceList)
+		private DataTable PagedTable<V>(IList<V> SourceList)
 		{
-			Type columnType = typeof(T);
+			Type columnType = typeof(V);
 			DataTable TableToReturn = new DataTable();
 
 			foreach (var Column in columnType.GetProperties())
