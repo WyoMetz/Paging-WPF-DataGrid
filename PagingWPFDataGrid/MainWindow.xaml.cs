@@ -13,7 +13,7 @@ namespace PagingWPFDataGrid
     {
         private int numberOfRecPerPage; //Initialize our Variable, Classes and the List
 
-        static Paging PagedTable = new Paging();
+        static Paging<StudentModel.Student> PagedTable = new Paging<StudentModel.Student>();
 
         static StudentModel StudentList = new StudentModel(); 
 
